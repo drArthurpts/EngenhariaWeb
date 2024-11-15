@@ -13,6 +13,9 @@
     --red: #a03d3d;
     --gray: #d3c5c5;
 }
+.navbar-toggler{
+    background-color: var(--red);
+}
 
 html, body {
     width: 100%;
