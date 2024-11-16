@@ -16,7 +16,13 @@
         <li><a href="#catalog">Catalog</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#feature">Features</a></li>
-        <button onclick="location.href='{% url 'login' %}'">Login</button>
+        {% if user.is_authenticated %}
+           <p>Bem-vindo,  {{ user.username }}!</p>
+           <button onclick="location.href='{% url 'logout' %}'">Sair</button>
+        {% else %}
+          <button onclick="location.href='{% url 'login' %}'">Login</button>
+        {% endif %}
+
       </ul>
     </nav>
     </header>

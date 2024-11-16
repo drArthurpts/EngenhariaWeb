@@ -17,6 +17,10 @@
     background-color: var(--red);
 }
 
+p {
+  color: var(--red);
+}
+
 html, body {
     width: 100%;
     overflow-x: hidden;
