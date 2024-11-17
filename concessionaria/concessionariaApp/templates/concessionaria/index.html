@@ -17,7 +17,9 @@
         <li><a href="#about">About</a></li>
         <li><a href="#feature">Features</a></li>
         {% if user.is_authenticated %}
-           <p>Bem-vindo,  {{ user.username }}!</p>
+             <li>
+               <p style="text-align: center;">Bem-vindo,  {{ user.username }}!</p>
+             </li>
            <button onclick="location.href='{% url 'logout' %}'">Sair</button>
         {% else %}
           <button onclick="location.href='{% url 'login' %}'">Login</button>
