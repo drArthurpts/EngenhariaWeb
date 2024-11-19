@@ -10,29 +10,26 @@
   </head>
   <body>
     <header>
-    <nav>
-      <p class="brand">SaleCar</p>
-      <ul>
-        <li><a href="#catalog">Catalog</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#feature">Features</a></li>
-        {% if user.is_authenticated %}
-             <li>
-               <p style="text-align: center;">Bem-vindo,  {{ user.username }}!</p>
-             </li>
-           <button onclick="location.href='{% url 'logout' %}'">Sair</button>
-        {% else %}
-          <button onclick="location.href='{% url 'login' %}'">Login</button>
-        {% endif %}
-
-      </ul>
-    </nav>
+      <nav>
+        <p class="brand">SaleCar</p>
+        <ul>
+          <li><a href="#catalog">Catalog</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#feature">Features</a></li>
+          {% if user.is_authenticated %}
+            <li>
+              <p style="text-align: center;">Bem-vindo, {{ user.username }}!</p>
+            </li>
+            <button onclick="location.href='{% url 'logout' %}'">Sair</button>
+          {% else %}
+            <button onclick="location.href='{% url 'login' %}'">Login</button>
+          {% endif %}
+        </ul>
+      </nav>
     </header>
-    
-    <br>
-    <br>
-    <div class="c-banner">
-      
+
+
+    <div class="c-banner" style="background-image: url('{% static "concessionaria/images/imagemmain.png" %}');">
     </div>
     <section class="catalog" id="catalog">
       <div class="content">

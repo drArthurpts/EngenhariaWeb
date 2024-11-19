@@ -36,14 +36,14 @@ header {
 
 .c-banner {
   width: 100%;
+  height: calc(100vw * 9 / 16);
   background-image: url("../images/imagemmain.png");
-  height: 700px;
-  background-size: cover; /* Ajusta a imagem para caber dentro da div */
-  background-position: center; /* Centraliza a imagem */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  aspect-ratio : 16/9;
-  
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat
 }
+
+
 
 
 .content {
@@ -85,14 +85,21 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--red);
-    text-decoration: none;
+  color: #7a0000;
+  text-decoration: none;
+  padding: 5px 10px; 
+  border: 2px solid transparent; 
+  transition: all 0.3s ease-in-out; 
+  border-radius: 5px; 
 }
-
 
 nav ul li a:hover {
-    color: #00285f83;
+  background-color: var(--red);
+  color: white;
+  transition: background, color 0.6s;
 }
+
+
 
 nav ul button {
     border: 1px solid var(--red);
