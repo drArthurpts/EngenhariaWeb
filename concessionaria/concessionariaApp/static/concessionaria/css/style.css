@@ -36,15 +36,13 @@ header {
 
 .c-banner {
   width: 100%;
-  height: calc(100vw * 9 / 16);
+  height: calc(60vw * 9 / 16);
   background-image: url("../images/imagemmain.png");
   background-size: contain;
   background-position: center;
-  background-repeat: no-repeat
+  background-repeat: no-repeat;
+
 }
-
-
-
 
 .content {
     max-width: 1000px;
@@ -164,8 +162,7 @@ nav ul button:hover {
 
 section .catalog {
     width: 100%;
-    padding: 100px;
-    
+    padding: 100px;    
 }
 
 section .filter-card {
@@ -216,7 +213,7 @@ section .filter-card {
 }
 
 .title-wrapper-catalog {
-    margin-top: 100px;
+    margin-top: 0px;
     padding-bottom: 20px;
     text-align: center;
     font-family: cursive;
@@ -525,3 +522,17 @@ section .card-item {
       padding-left: 10%;
     }
   }
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.register {
+  display: flex;
+  justify-content: center;  
+  height: 140vh;
+  margin-top: 50px;
+}
