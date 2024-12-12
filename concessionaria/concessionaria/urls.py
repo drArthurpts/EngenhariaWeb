@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings  # Import necessário
+from django.conf.urls.static import static  # Import necessário para servir arquivos estáticos e de mídia
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +25,7 @@ urlpatterns = [
     path('register/', include('concessionariaApp.urls')),
     path('', include('concessionariaApp.urls')),
 ]
+
+# Configuração para servir arquivos de mídia
+if settings.DEBUG:  # Garantir que esta verificação funcione
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

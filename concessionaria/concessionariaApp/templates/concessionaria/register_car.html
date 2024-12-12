@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Carros</title>
+    <link rel="stylesheet" href="{% static 'concessionaria/css/style.css' %}" />
+    <style>
+      /* Estilos gerais */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff; /* Fundo branco */
+        color: #333; /* Texto escuro para contraste */
+      }
+
+      header nav {
+        background-color: #ff0000; /* Vermelho para o cabeçalho */
+        padding: 1rem;
+        text-align: center;
+      }
+
+      header nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      /* Título */
+      .title-wrapper-registration {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .title-wrapper-registration p {
+        color: #ff0000; /* Vermelho */
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .title-wrapper-registration h3 {
+        color: #333; /* Cinza escuro */
+        font-size: 2rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Formulário */
+      .car-registration-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #f9f9f9; /* Fundo claro para destaque */
+        padding: 2rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        color: #ff0000; /* Vermelho */
+        margin-bottom: 0.5rem;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="file"] {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        box-sizing: border-box;
+      }
+
+      input[type="text"]:focus,
+      input[type="number"]:focus,
+      input[type="file"]:focus {
+        outline: none;
+        border-color: #ff0000;
+        box-shadow: 0px 0px 5px #ff0000;
+      }
+
+      .register-button {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #ff0000; /* Vermelho */
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .register-button:hover {
+        background-color: #cc0000; /* Vermelho escuro ao passar o mouse */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="{% url 'index' %}">Voltar ao início</a> <!-- Link para voltar ao início -->
+      </nav>
+    </header>
+
+    <section class="car-registration" id="car-registration">
+      <div class="content">
+        <div class="title-wrapper-registration">
+          <p>Adicione seu veículo</p>
+          <h3>Cadastro de Carros</h3>
+        </div>
+        <form method="POST" action="{% url 'register_car' %}" class="car-registration-form" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="brand">Marca:</label>
+            <input type="text" id="brand" name="brand" placeholder="Digite a marca do carro" required />
+          </div>
+          <div class="form-group">
+            <label for="model">Modelo:</label>
+            <input type="text" id="model" name="model" placeholder="Digite o modelo do carro" required />
+          </div>
+          <div class="form-group">
+            <label for="year">Ano:</label>
+            <input type="number" id="year" name="year" placeholder="Digite o ano do carro" required />
+          </div>
+          <div class="form-group">
+            <label for="price">Preço:</label>
+            <input type="number" id="price" name="price" placeholder="Digite o preço do carro" step="0.01" required />
+          </div>
+          <div class="form-group">
+            <label for="image">Imagem:</label>
+            <input type="file" id="image" name="image" accept="image/*" required />
+          </div>
+          <button type="submit" class="register-button">Cadastrar Carro</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

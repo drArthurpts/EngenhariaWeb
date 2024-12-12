@@ -16,6 +16,7 @@
           <li><a href="#catalog">Catalog</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#feature">Features</a></li>
+          <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li> <!-- Novo Link -->
           {% if user.is_authenticated %}
             <li>
               <p style="text-align: center;">Bem-vindo, {{ user.username }}!</p>
@@ -150,6 +151,28 @@
           </div>
           
       </div>
+      <section class="database-cars" id="database-cars">
+        <div class="content">
+          <div class="title-wrapper-database-cars">
+            <p>Veja os carros cadastrados</p>
+            <h3>Carros do Banco de Dados</h3>
+          </div>
+          <div class="card-wrapper">
+            {% for car in cars %}
+            <div class="card-item">
+              <img src="{{ car.image.url }}" alt="{{ car.brand }}" />
+              <div class="card-content">
+                <h3>{{ car.brand }} {{ car.model }}</h3>
+                <p>Ano: {{ car.year }}</p>
+                <p>Preço: R$ {{ car.price }}</p>
+              </div>
+            </div>
+            {% empty %}
+            <p class="no-cars">Não há carros cadastrados no momento.</p>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
     </section>
 
     <section class="about" id="about">
