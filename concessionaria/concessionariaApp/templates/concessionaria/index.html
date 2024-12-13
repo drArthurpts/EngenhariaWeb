@@ -15,13 +15,16 @@
         <ul>
           <li><a href="#catalog">Catalog</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#feature">Features</a></li>
-          <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li> <!-- Novo Link -->
+          <li><a href="#feature">Features</a></li> <!-- Novo Link -->
           {% if user.is_authenticated %}
+          <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li>
             <li>
               <p style="text-align: center;">Bem-vindo, {{ user.username }}!</p>
             </li>
-            <button onclick="location.href='{% url 'logout' %}'">Sair</button>
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit">Sair</button>
+            </form>
           {% else %}
             <button onclick="location.href='{% url 'login' %}'">Login</button>
           {% endif %}
