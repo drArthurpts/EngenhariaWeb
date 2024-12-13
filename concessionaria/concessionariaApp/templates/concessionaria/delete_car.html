@@ -1,0 +1,9 @@
+{% block content %}
+<h1>Excluir Carro</h1>
+<p>Tem certeza que deseja excluir o carro {{ car.brand }} {{ car.model }}?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Sim, excluir</button>
+    <a href="{% url 'my_cars' %}">Cancelar</a>
+</form>
+{% endblock %}

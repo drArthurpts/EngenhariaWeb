@@ -17,6 +17,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#feature">Features</a></li> <!-- Novo Link -->
           {% if user.is_authenticated %}
+          <li><a href="{% url 'my_cars' %}">Meus Carros</a></li>
           <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li>
             <li>
               <p style="text-align: center;">Bem-vindo, {{ user.username }}!</p>
@@ -41,22 +42,15 @@
           <h3>Catálogo</h3>
         </div>
         <div class="filter-card">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Choose your favorite model"
-          />
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Choose your location"
-          />
-          <input
-            type="text"
-            class="search-input2"
-            placeholder="Choose the model year"
-          />
-          <button class="search-button">Search</button>
+          <form method="GET" action="{% url 'car_search' %}">
+            <input
+              type="text"
+              name="model"
+              class="search-input"
+              placeholder="Digite o modelo"
+            />
+            <button class="search-button" type="submit">Pesquisar</button>
+          </form>
         </div>
         <div class="card-wrapper">
           <div class="card-item">
@@ -157,8 +151,8 @@
       <section class="database-cars" id="database-cars">
         <div class="content">
           <div class="title-wrapper-database-cars">
-            <p>Veja os carros cadastrados</p>
-            <h3>Carros do Banco de Dados</h3>
+            <p>Veja os carros anunciados</p>
+            <h3>Carros de Terceiros</h3>
           </div>
           <div class="card-wrapper">
             {% for car in cars %}
@@ -168,6 +162,9 @@
                 <h3>{{ car.brand }} {{ car.model }}</h3>
                 <p>Ano: {{ car.year }}</p>
                 <p>Preço: R$ {{ car.price }}</p>
+                {% if car.user != user %}
+                <button type="button" onclick="window.location.href='{% url 'car_details' car.id %}'">Comprar</button>
+                {% endif %}
               </div>
             </div>
             {% empty %}
@@ -176,7 +173,6 @@
           </div>
         </div>
       </section>
-    </section>
 
     <section class="about" id="about">
       <div class="content">

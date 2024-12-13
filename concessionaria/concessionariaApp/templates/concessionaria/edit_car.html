@@ -1,0 +1,21 @@
+{% block content %}
+<div style="max-width: 600px; margin: 50px auto; background-color: #ffffff; padding: 30px; border-radius: 16px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); border: 3px solid #FF5733;">
+    <h1 style="text-align: center; font-size: 28px; color: #FF5733; font-weight: bold; margin-bottom: 20px; font-family: Arial, sans-serif;">
+        Editar Carro
+    </h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div style="margin-bottom: 20px;">
+            {{ form.as_p }}
+        </div>
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+            <button type="submit" style="background-color: #FF5733; color: white; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                Salvar
+            </button>
+            <a href="{% url 'my_cars' %}" style="background-color: white; color: #FF5733; text-decoration: none; padding: 12px 30px; border-radius: 8px; border: 2px solid #FF5733; font-size: 16px; font-weight: bold; text-align: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

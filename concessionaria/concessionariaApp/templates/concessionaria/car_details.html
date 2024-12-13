@@ -1,0 +1,211 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compra do Carro - {{ car.brand }} {{ car.model }}</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333;
+      padding: 10px 0;
+      color: white;
+    }
+
+    header nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav .brand {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a,
+    header nav ul li button {
+      color: white;
+      text-decoration: none;
+      background-color: #007bff;
+      padding: 8px 15px;
+      border-radius: 5px;
+    }
+
+    header nav ul li button {
+      background-color: #28a745;
+    }
+
+    header nav ul li a:hover,
+    header nav ul li button:hover {
+      background-color: #0056b3;
+    }
+
+    .car-details {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 50px 20px;
+    }
+
+    .car-details .content {
+      max-width: 1200px;
+      width: 100%;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .car-details .car-image {
+      flex: 1;
+      max-width: 500px;
+    }
+
+    .car-details .car-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .car-details .car-info {
+      flex: 2;
+      padding: 0 30px;
+    }
+
+    .car-details .car-info h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .car-details .car-info p {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .purchase-form {
+      margin-top: 30px;
+    }
+
+    .purchase-form h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .purchase-form form {
+      display: grid;
+      gap: 15px;
+    }
+
+    .purchase-form label {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .purchase-form input {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .purchase-form .submit-button {
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .purchase-form .submit-button:hover {
+      background-color: #218838;
+    }
+
+    .purchase-form .submit-button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <p class="brand">SaleCar</p>
+    <ul>
+      <li><a href="{% url 'car_search' %}">Pesquisar Novamente</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'my_cars' %}">Meus Carros</a></li>
+      <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li>
+      <li><p>Bem-vindo, {{ user.username }}!</p></li>
+      <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Sair</button>
+      </form>
+      {% else %}
+      <button onclick="location.href='{% url 'login' %}'">Login</button>
+      {% endif %}
+    </ul>
+  </nav>
+</header>
+
+<section class="car-details">
+  <div class="content">
+    <div class="car-image">
+      <img src="{{ car.image.url }}" alt="{{ car.brand }} {{ car.model }}" />
+    </div>
+    <div class="car-info">
+      <h2>{{ car.brand }} {{ car.model }}</h2>
+      <p><strong>Ano:</strong> {{ car.year }}</p>
+      <p><strong>Preço:</strong> R$ {{ car.price }}</p>
+    </div>
+
+    <div class="purchase-form">
+      <h3>Formulário de Compra</h3>
+      <form method="POST" action="{% url 'confirm_purchase' car.id %}">
+        {% csrf_token %}
+        <label for="buyer_name">Seu nome:</label>
+        <input type="text" id="buyer_name" name="buyer_name" required />
+        
+        <label for="buyer_email">Seu email:</label>
+        <input type="email" id="buyer_email" name="buyer_email" required />
+        
+        <label for="buyer_phone">Seu telefone:</label>
+        <input type="text" id="buyer_phone" name="buyer_phone" required />
+        
+        <button type="submit" class="submit-button">Finalizar Compra</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
