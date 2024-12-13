@@ -13,9 +13,9 @@
       <nav>
         <p class="brand">SaleCar</p>
         <ul>
-          <li><a href="#catalog">Catalog</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#feature">Features</a></li> <!-- Novo Link -->
+          <li><a href="#catalog">Catálogo</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#feature">Recursos</a></li>
           {% if user.is_authenticated %}
           <li><a href="{% url 'my_cars' %}">Meus Carros</a></li>
           <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li>
@@ -61,7 +61,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Repellendus.
               </p>
-              <button type="button">I want this!</button>
+              <button type="button">Comprar</button>
             </div>
           </div>
           <div class="card-item">
@@ -72,7 +72,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Repellendus.
               </p>
-              <button type="button">I want this!</button>
+              <button type="button">Comprar</button>
             </div>
           </div>
           <div class="card-item"> 
@@ -83,7 +83,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Repellendus. 
               </p>
-              <button type="button">I want this!</button>
+              <button type="button">Comprar</button>
             </div>
           </div>
           <div class="card-item"> 
@@ -94,7 +94,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Repellendus.
               </p>
-              <button type="button">I want this!</button>
+              <button type="button">Comprar</button>
             </div>
           </div> 
           <div class="card-item">
@@ -105,7 +105,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Repellendus.
               </p>
-              <button type="button">I want this!</button>
+              <button type="button">Comprar</button>
             </div>
           </div> 
           <div class="card-item">
@@ -115,7 +115,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Repellendus.
               </p>
-              <button type="button">I want this!</button>
+              <button type="button">Comprar</button>
             </div>
             <div class="card-item">
                 <img src="{% static 'concessionaria/images/kisspng-2018-volkswagen-beetle-car-volkswagen-new-beetle-v-5af50651c6db21.6033014015260073778145.png' %}">
@@ -124,7 +124,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Repellendus.
                   </p>
-                  <button type="button">I want this!</button>
+                  <button type="button">Comprar</button>
                 </div>
                 <div class="card-item">
                     <img src="{% static 'concessionaria/images/kisspng-car-vehicle-audio-stereophonic-sound-stereo-2018-5adea653d19d34.1645318015245410118586.png' %}">
@@ -133,7 +133,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Repellendus.
                       </p>
-                      <button type="button">I want this!</button>
+                      <button type="button">Comprar</button>
                     </div>
                     <div class="card-item"> 
                         <img src="{% static 'concessionaria/images/kisspng-fiat-palio-car-fiat-automobiles-fiat-siena-5af6244c110d15.8151092015260805880699.png' %}">
@@ -142,7 +142,7 @@
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Repellendus.
                           </p>
-                          <button type="button">I want this!</button>
+                          <button type="button">Comprar</button>
                         </div>
                 
           </div>
@@ -177,8 +177,8 @@
     <section class="about" id="about">
       <div class="content">
         <div class="title-wrapper-about">
-          <p>Know about us</p>
-          <h3>About</h3>
+          <p>Saiba mais sobre nós</p>
+          <h3>Sobre</h3>
         </div>
         <div class="about-content">
           <div class="left"> 
@@ -204,8 +204,8 @@
     <section class="features" id="features">
       <div class="content">
         <div class="title-wrapper-features">
-          <p>What you can do</p>
-          <h3>Features</h3>
+          <p>O que você pode fazer</p>
+          <h3>Recursos</h3>
         </div>
         <div class="feature-card-block">
           <div class="feature-card-item">
@@ -258,27 +258,27 @@
       <div class="main">
         <div class="content footer-links">
           <div class="footer-company">
-            <h4>Company</h4>
-            <h6>About</h6>
-            <h6>Contact</h6>
+            <h4>Empresa</h4>
+            <h6>Sobre</h6>
+            <h6>Contato</h6>
           </div>
           <div class="footer-rental">
-            <h4>Rental</h4>
-            <h6>Self-Drive</h6>
-            <h6>Chauffer-Driven</h6>
-            <h6>Help</h6>
+            <h4>Aluguel</h4>
+            <h6>Dirigir sozinho</h6>
+            <h6>Conduzido por motorista</h6>
+            <h6>Ajuda</h6>
           </div>
           <div class="footer-social">
-            <h4>Stay connected</h4>
+            <h4>Redes Sociais</h4>
             <div class="social-icons">
               <img src="{% static 'concessionaria/images/instagram.png' %}" alt="Instagram" /> 
               <img src="{% static 'concessionaria/images/facebook.png' %}" alt="Facebook" />
             </div>
           </div>
           <div class="footer-contact">
-            <h4>Contact US</h4>
+            <h4>Contatos</h4>
             <h6>+55 31 988776655</h6>
-            <h6>contato@devsuperior.com.br</h6>
+            <h6>zeze@bolinha.com.br</h6>
             <h6>Nome da Rua, Diamantina MG</h6>
           </div>
         </div>

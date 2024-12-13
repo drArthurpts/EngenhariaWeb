@@ -156,19 +156,18 @@
   </style>
 </head>
 <body>
-
-<header>
+<header style="background-color: white; color: white;">
   <nav>
-    <p class="brand">SaleCar</p>
+    <p style="color: #a03d3d;" class="brand">SaleCar</p>
     <ul>
-      <li><a href="{% url 'car_search' %}">Pesquisar Novamente</a></li>
+      <li><a style="background-color: #a03d3d; color: white; font-family: 'Roboto', sans-serif; font-weight: bolder" href="{% url 'car_search' %}">Pesquisar Novamente</a></li>
       {% if user.is_authenticated %}
-      <li><a href="{% url 'my_cars' %}">Meus Carros</a></li>
-      <li><a href="{% url 'register_car_page' %}">Cadastro de Carros</a></li>
-      <li><p>Bem-vindo, {{ user.username }}!</p></li>
+      <li><a style="background-color: #a03d3d; color: white; font-family: 'Roboto', sans-serif; font-weight: bolder" href="{% url 'my_cars' %}">Meus Carros</a></li>
+      <li><a style="background-color: #a03d3d; color: white; font-family: 'Roboto', sans-serif; font-weight: bolder" href="{% url 'register_car_page' %}">Cadastro de Carros</a></li>
+      <li><p style="color: #a03d3d; font-family: 'Roboto', sans-serif; font-weight: bolder">Bem-vindo, {{ user.username }}!</p></li>
       <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit">Sair</button>
+        <button style="background-color: #a03d3d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-family: 'Roboto', sans-serif; font-weight: bolder" type="submit">Sair</button>
       </form>
       {% else %}
       <button onclick="location.href='{% url 'login' %}'">Login</button>
@@ -201,7 +200,7 @@
         <label for="buyer_phone">Seu telefone:</label>
         <input type="text" id="buyer_phone" name="buyer_phone" required />
         
-        <button type="submit" class="submit-button">Finalizar Compra</button>
+        <button style="background-color: #a03d3d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-family: 'Roboto', sans-serif; font-weight: bolder" type="submit" class="submit-button">Finalizar Compra</button>
       </form>
     </div>
   </div>

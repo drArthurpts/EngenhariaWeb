@@ -2,34 +2,34 @@
 <div style="max-width: 800px; margin: 20px auto;">
     <!-- Botão Voltar -->
     <div style="margin-bottom: 20px;">
-        <a href="{% url 'index' %}" style="text-decoration: none; background-color: #FF5733; color: white; padding: 10px 20px; border-radius: 6px; font-weight: bold; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <a href="{% url 'index' %}" style="text-decoration: none; background-color: #a03d3d; color: white; padding: 10px 20px; border-radius: 6px; font-weight: bold; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); font-family: 'Roboto', sans-serif; font-weight: bolder;;">
             Voltar
         </a>
     </div>
 
     <!-- Título -->
-    <h1 style="text-align: center;">Meus Carros</h1>
+    <h1 style="text-align: center; font-family: 'Roboto', sans-serif; font-weight: bolder; color:  #a03d3d">Meus Carros</h1>
 
     <!-- Tabela -->
     <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
         <thead>
             <tr style="background-color: #f4f4f4; text-align: left;">
-                <th style="padding: 10px; border: 1px solid #ddd;">Marca</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Modelo</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Ano</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Preço</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Imagem</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Ações</th>
+                <th style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">Marca</th>
+                <th style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">Modelo</th>
+                <th style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">Ano</th>
+                <th style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">Preço</th>
+                <th style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">Imagem</th>
+                <th style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">Ações</th>
             </tr>
         </thead>
         <tbody>
             {% for car in cars %}
             <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;">{{ car.brand }}</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">{{ car.model }}</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">{{ car.year }}</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">R$ {{ car.price }}</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">
+                <td style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">{{ car.brand }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">{{ car.model }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">{{ car.year }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">R$ {{ car.price }}</td>
+                <td style="padding: 10px; border: 1px solid #ddd; font-family: 'Roboto', sans-serif; font-weight: bolder;">
                     {% if car.image %}
                     <img src="{{ car.image.url }}" alt="{{ car.brand }}" style="width: 100px; height: auto;">
                     {% else %}
@@ -37,10 +37,10 @@
                     {% endif %}
                 </td>
                 <td style="padding: 10px; border: 1px solid #ddd;">
-                    <a href="{% url 'edit_car' car.id %}" style="color: #007BFF; text-decoration: none; margin-right: 10px;">Editar</a>
+                    <a href="{% url 'edit_car' car.id %}" style="background-color: #a03d3d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-family: 'Roboto', sans-serif; font-weight: bolder;">Editar</a>
                     <form method="POST" action="{% url 'delete_car' car.id %}" style="display: inline;">
                         {% csrf_token %}
-                        <button type="submit" style="background-color: #FF5733; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px;">Excluir</button>
+                        <button type="submit" style="background-color: #a03d3d; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-family: 'Roboto', sans-serif; font-weight: bolder;">Excluir</button>
                     </form>
                 </td>
             </tr>
